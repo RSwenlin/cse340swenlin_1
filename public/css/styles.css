@@ -4,3 +4,108 @@
 *:after {
   box-sizing: border-box;
 }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  color: black;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+.account {
+  color: white;
+  text-decoration: none;
+}
+
+main {
+  padding: 20px;
+  text-align: center;
+}
+
+.welcome-section {
+  margin-bottom: 20px;
+}
+
+.delorean {
+  display: inline-block;
+  text-align: left;
+  max-width: 600px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.delorean img {
+  max-width: 100%;
+  display: block;
+  margin: 20px 0;
+}
+
+button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.upgrades-reviews {
+  display: flex;
+  justify-content: space-around;
+  text-align: left;
+  flex-wrap: wrap;
+}
+
+.upgrades, .reviews {
+  width: 45%;
+  min-width: 300px;
+}
+
+.upgrade-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.upgrade-item img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
