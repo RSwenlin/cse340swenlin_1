@@ -28,4 +28,15 @@ async function getInventoryByClassificationId(classification_id) {
   }
 
   module.exports = {getClassifications, getInventoryByClassificationId};
-  
+
+const db = require('../database/connection'); // Adjust the path to your database connection
+
+exports.getVehicleById = async (id) => {
+    try {
+        const result = await db.query('SELECT * FROM inventory WHERE id = $1', [id]);
+        return result.rows[0];
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+};

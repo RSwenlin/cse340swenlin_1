@@ -58,4 +58,15 @@ Util.buildClassificationGrid = async function(data){
     }
     return grid
   }
-  
+  exports.wrapVehicleDetails = (vehicle) => {
+    return `
+        <div class="vehicle-details">
+            <h1>${vehicle.make} ${vehicle.model}</h1>
+            <img src="${vehicle.image}" alt="${vehicle.make} ${vehicle.model}">
+            <p><strong>Year:</strong> ${vehicle.year}</p>
+            <p><strong>Price:</strong> $${vehicle.price.toLocaleString()}</p>
+            <p><strong>Mileage:</strong> ${vehicle.mileage.toLocaleString()} miles</p>
+            <p><strong>Description:</strong> ${vehicle.description}</p>
+        </div>
+    `;
+};

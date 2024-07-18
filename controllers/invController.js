@@ -20,3 +20,24 @@ invCont.buildByClassificationId = async function (req, res, next) {
 }
 
 module.exports = invCont
+
+const inventoryModel = require('../models/inventoryModel');
+const utilities = require('../utilities/index');
+
+exports.getInventoryDetail = async (req, res) => {
+    const inventoryId = req.params.id;
+    try {
+        const vehicle = await inventoryModel.getVehicleById(inventoryId);
+        if (!vehicle) {
+            return res.status(404).send('Vehicle not found');
+        }
+        const vehicleHTML = utilities.wrapVehicleDetails(vehicle);
+        res.render('inventory/detail', {
+            title: `${vehicle.make} ${vehicle.model}`,
+            content: vehicleHTML
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Server error');
+    }
+};

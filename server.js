@@ -12,7 +12,7 @@ const app = express()
 const static = require("./routes/static")
 const baseController =
 require("./controllers/baseController")
-/*require("./routes/inventoryRoute")
+require("./routes/inventoryRoute")
 
 
 
