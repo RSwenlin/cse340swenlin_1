@@ -20,6 +20,7 @@ const pool = require('./database/')
 /* ***********************
  * Middleware
  * ************************/
+app.use('/account', accountRoute);
 app.use(session({
   store: new (require('connect-pg-simple')(session))({
     createTableIfMissing: true,
@@ -30,6 +31,8 @@ app.use(session({
   saveUninitialized: true,
   name: 'sessionId',
 }))
+
+
 // Express Messages Middleware
 app.use(require('connect-flash')())
 app.use(function(req, res, next){
@@ -51,6 +54,8 @@ app.set("layout", "./layouts/layout") // not at views root
  * Routes
  *************************/
 app.use(static)
+app.use(inventoryRoute)
+app.use(accountRoute)
 
 // Index route
 //app.get("/", function(req, res){
