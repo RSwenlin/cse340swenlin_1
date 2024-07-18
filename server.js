@@ -20,7 +20,6 @@ const pool = require('./database/')
 /* ***********************
  * Middleware
  * ************************/
-app.use('/account', accountRoute);
 app.use(session({
   store: new (require('connect-pg-simple')(session))({
     createTableIfMissing: true,
@@ -54,8 +53,8 @@ app.set("layout", "./layouts/layout") // not at views root
  * Routes
  *************************/
 app.use(static)
-app.use(inventoryRoute)
-app.use(accountRoute)
+app.use(baseController)
+app.use('/account', accountRoute);
 
 // Index route
 //app.get("/", function(req, res){
