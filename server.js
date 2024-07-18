@@ -13,6 +13,9 @@ const static = require("./routes/static")
 const baseController =
 require("./controllers/baseController")
 require("./routes/inventoryRoute")
+const session = require("express-session")
+const pool = require('./database/')
+
 
 
 
