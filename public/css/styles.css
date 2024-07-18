@@ -109,3 +109,21 @@ footer {
   width: 100%;
   bottom: 0;
 }
+.vehicle-details {
+  display: flex;
+  flex-wrap: wrap;
+}
+.vehicle-details img {
+  max-width: 100%;
+  height: auto;
+  flex: 1;
+}
+.vehicle-details div {
+  flex: 1;
+  padding: 20px;
+}
+@media (max-width: 768px) {
+  .vehicle-details {
+      flex-direction: column;
+  }
+}
