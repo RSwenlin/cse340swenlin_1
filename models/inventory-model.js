@@ -29,7 +29,7 @@ async function getInventoryByClassificationId(classification_id) {
 
   module.exports = {getClassifications, getInventoryByClassificationId};
 
-const db = require('../database/connection'); // Adjust the path to your database connection
+const db = require('../database'); // Adjust the path to your database 
 
 exports.getVehicleById = async (id) => {
     try {
@@ -40,3 +40,4 @@ exports.getVehicleById = async (id) => {
         throw error;
     }
 };
+
