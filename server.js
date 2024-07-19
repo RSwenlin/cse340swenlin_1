@@ -21,9 +21,10 @@ const app = express()
 /* ***********************
  * Middleware
  * ************************/
-
-app.use(session({
-  store: new (require('connect-pg-simple')(session))({
+// Unit 4 Activity
+app.use(
+  session({
+    store: new (require('connect-pg-simple')(session))({
     createTableIfMissing: true,
     pool,
   }),
@@ -31,11 +32,12 @@ app.use(session({
   resave: true,
   saveUninitialized: true,
   name: 'sessionId',
-}))
-
+})
+)
+// Unit 4 Activity
 // Express Messages Middleware
 app.use(require('connect-flash')())
-app.use(function(req, res, next){
+app.use(function (req, res, next) {
   res.locals.messages = require('express-messages')(req, res)
   next()
 })
