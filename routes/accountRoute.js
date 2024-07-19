@@ -1,6 +1,6 @@
 // Needed Resources 
 const express = require('express');
-const router = express.Router();
+const router = new express.Router();
 const accountController = require('../controllers/accountController'); // Import the accounts controller
 
 // Add a "GET" route for the "My Account" path
