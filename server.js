@@ -57,7 +57,7 @@ app.use(require("./routes/static"))
 // Index route - unit 3, activity
 app.get("/", utilities.handleErrors(baseController.buildHome))
 // Inventory routes - Unit 3, activity
-app.use("/inv", require("./routes/inventory-route"))
+app.use("/inv", require("./routes/inventoryRoute"))
 // Account routes - Unit 4, activity
 app.use('/account', require("./routes/accountRoute"))
 
