@@ -62,11 +62,16 @@ app.use('/account', require("./routes/accountRoute"))
 // File Not Found Route - must be last route in list
 * Place after all routes
 * Unit 3, Activities
-/* ***********************
-* Express Error Handler
-* Place after all other middleware
-*************************/
+/* *********************** */
+app.use(async (req, res, next) => {
+  next({ status: 404, message: "Sorry, we appear to have lost that page."});
+});
 
+/*  ***************************
+/* Express Error Handler
+* Place after all other middleware
+Unit 3, Basic Error Handling Activity
+*************************/
 app.use(async (err, req, res, next) => {
   let nav = await utilities.getNav()
   console.error(`Error at: "${req.originalUrl}": ${err.message}`)
