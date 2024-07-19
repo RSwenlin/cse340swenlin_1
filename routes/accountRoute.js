@@ -13,10 +13,10 @@ const utilities = require("../utilities");
 router.get('/login', utilities.handleErrors(accountController,
     buildLogin))
 
-// Error handling middleware
-router.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Something went wrong!');
-});
+/*  ***********************************
+*   Deliver Registration iew
+*   Unit 4, deliver registration view activity
+*   ******************************* */
+router.get("/register", utilities.handleErrors(accountController.buildRegister))
 
 module.exports = router;
