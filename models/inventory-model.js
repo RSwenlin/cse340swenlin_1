@@ -29,8 +29,6 @@ async function getInventoryByClassificationId(classification_id) {
 
   module.exports = {getClassifications, getInventoryByClassificationId};
 
- 
-
 exports.getVehicleById = async (id) => {
     try {
         const result = await db.query('SELECT * FROM inventory WHERE id = $1', [id]);
