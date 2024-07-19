@@ -2,7 +2,6 @@
 const express = require("express");
 const router = new express.Router();
 const invController = require("../controllers/invController");
-const validate = require("../utilities/inventory-validation");
 const utilities = require('../utilities');
 const invChecks = require("../utilities/inventory-validation")
 
