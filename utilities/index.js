@@ -18,11 +18,16 @@ Util.getNav = async function (req, res, next) {
       ' vehicles">' +
       row.classification_name +
       "</a>"
-    list += "</li>"
-  })
-  list += "</ul>"
-  return list
-}
+    list += "</li>";
+  });
+  list += "</ul>";
+  return list;
+} catch (error) {
+  console.error('Error building navigation:', error);
+  throw error;
+};
+Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next);
+
 
 module.exports = Util
 
