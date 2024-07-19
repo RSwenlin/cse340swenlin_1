@@ -1,0 +1,43 @@
+<main>
+    <img class="checkers" src="images/site/checkerboard.jpg" alt="checkerboard pattern">
+    <h1>Welcome to CSE Motors!</h1>
+    <%- if messages() { %>
+    <div class="message">
+        <%- message %> <!-- EJS unescaped code block to render HTML -->
+    </div>
+<% } %>
+    <div class="main-content">
+        <div class="delorean-section">
+            <h2>DMC DeLorean</h2>
+            <p>3 Cup holders<br>Superman doors<br>Fuzzy dice!</p>
+            <button>Own Today</button>
+        </div>
+        <div class="delorean-image">
+            <img src="images/vehicles/delorean.jpg" alt="DMC DeLorean">
+        </div>
+    </div>
+    <div class="upgrades-reviews">
+        <div class="upgrades">
+            <h3>Delorean Upgrades</h3>
+            <img src="images/upgrades/flux-cap.png" alt="Fluc Capacitor">
+            <button type="button">Flux Capacitor</button>
+            <img src="images/upgrades/flame.jpg" alt="Flame Decals">
+            <button type="button">Flame Decals</button>
+            <img src="images/upgrades/bumper_sticker.jpg" alt="Bumper Stickers">
+            <button type="button">Bumper Stickers</button>
+            <img src="images/upgrades/hub-cap.jpg" alt="Hub Cap">
+            <button type="button">Hub Cap</button>
+        </div>
+        <div class="reviews">
+            <h3>DMC DeLorean Reviews</h3>
+            <ul>
+                <li>"So fast it's almost like traveling in time." (4/5)</li>
+                        <li>"Coolest ride on the road." (4/5)</li>
+                        <li>"I'm feeling McFly!" (5/5)</li>
+                        <li>"The most futuristic ride of our day." (4.5/5)</li>
+                        <li>"80's livin and I love it!" (5/5)</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+
