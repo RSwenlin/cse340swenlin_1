@@ -13,7 +13,6 @@ const baseController = require("./controllers/baseController")
 const pool = require('./database/')
 const utilities = require("./utilities/")
 
-
 //const inventoryRoute = require("./routes/inventoryRoute")
 //const accountRoute = require('./routes/accountRoute');
 //const session = require("express-session")
@@ -34,7 +33,6 @@ app.use(session({
   name: 'sessionId',
 }))
 
-
 // Express Messages Middleware
 app.use(require('connect-flash')())
 app.use(function(req, res, next){
@@ -42,15 +40,12 @@ app.use(function(req, res, next){
   next()
 })
 
-
-
 /* ***********************
  * View Engine and Templates
  *************************/
 app.set("view engine", "ejs")
 app.use(expressLayouts)
 app.set("layout", "./layouts/layout") // not at views root
-
 
 /* ***********************
  * Routes
@@ -62,8 +57,6 @@ app.get("/", utilities.handleErrors(baseController.buildHome))
 app.use("/inv", require("./routes/inventory-route"))
 // Account routes - Unit 4, activity
 app.use('/account', require("./routes/accountRoute"))
-
-
 
 /* **********************************************
 // File Not Found Route - must be last route in list
