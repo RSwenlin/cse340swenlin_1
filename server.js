@@ -53,23 +53,20 @@ app.set("detailsPage", "./layouts/layout") // not at views root
 /* ***********************
  * Routes
  *************************/
-app.use(static)
-app.use(baseController)
-app.use('/account', accountRoute);
+app.use(require("./routes/static"))
+// Index route - unit 3, activity
+app.get("/", utilities.handleErrors(baseController.buildHome))
+// Inventory routes - Unit 3, activity
+app.use("/inv", require("./routes/inventoryRoute"))
+// Account routes - Unit 4, activity
+app.use('/account', require("./routes/accountRoute"))
 
-// Index route
-//app.get("/", function(req, res){
-//  res.render("index", {title: "Home"})
-//})
-app.get("/", baseController.buildHome)
-// Inventory routes
-app.use("/inv", inventoryRoute)
 
+
+/* **********************************************
 // File Not Found Route - must be last route in list
-app.use(async (req, res, next) => {
-  next({status: 404, message: 'Sorry, we appear to have lost that page.'})
-})
-
+* Place after all routes
+* Unit 3, Activities
 /* ***********************
 * Express Error Handler
 * Place after all other middleware

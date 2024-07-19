@@ -1,13 +1,22 @@
-const utilities = require('../utilities/index'); // Ensure correct path
+// Ensure correct path
+/*  ************************
+*   Account Controller
+*   Unit 4, deliver login view activity
+* ************************************* */
 
-exports.handleMyAccount = (req, res, next) => {
-    try {
-        // Example of using a utility function
-        utilities.someUtilityFunction();
-        
-        // Handle the "My Account" request
-        res.send('My Account Page');
-    } catch (err) {
-        next(err); // Pass errors to the error handler middleware
-    }
-};
+const utilities = require('../utilities'); 
+
+/*  ************************
+*   Deliver login view
+*   Unit 4, deliver login view activity
+*   *********************************** */
+async function buildLogin(req, res, next) {
+    let nav = await utilities.getNav()
+    res.render("account/login", {
+        title: "Login",
+        nav,
+    })
+}
+
+
+module.exports = { buildLogin }
