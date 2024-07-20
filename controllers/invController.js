@@ -1,5 +1,5 @@
 const invModel = require("../models/inventory-model")
-const utilities = require("../utilities/")
+const utilities = require("../utilities/index")
 const invCont = {}
 
 /* ***************************
@@ -18,10 +18,10 @@ invCont.buildByClassificationId = async function (req, res, next) {
   })
 }
 
-module.exports = invCont
+
 
 const inventoryModel = require('../models/inventoryModel');
-const utilities = require('../utilities/index');
+
 
 exports.getInventoryDetail = async (req, res) => {
     const inventoryId = req.params.id;
@@ -40,3 +40,4 @@ exports.getInventoryDetail = async (req, res) => {
         res.status(500).send('Server error');
     }
 };
+module.exports = invCont
