@@ -1,29 +1,36 @@
-const invModel = require("../models/inventory-model")
-const utilities = require("../utilities/index")
-const invCont = {}
+const inventoryModel = require('../models/inventoryModel');
+const utilities = require('../utilities/index');
+
+const invCont = {};
 
 /* ***************************
  *  Build inventory by classification view
  * ************************** */
 invCont.buildByClassificationId = async function (req, res, next) {
-  const classification_id = req.params.classificationId
-  const data = await invModel.getInventoryByClassificationId(classification_id)
-  const grid = await utilities.buildClassificationGrid(data)
-  let nav = await utilities.getNav()
-  const className = data[0].classification_name
-  res.render("./inventory/classification", {
-    title: className + " vehicles",
-    nav,
-    grid,
-  })
-}
+    const classificationId = req.params.classificationId;
+    try {
+        const data = await inventoryModel.getInventoryByClassificationId(classificationId);
+        if (data.length === 0) {
+            return res.status(404).send('No vehicles found for this classification');
+        }
+        const grid = await utilities.buildClassificationGrid(data);
+        const nav = await utilities.getNav();
+        const className = data[0].classification_name;
+        res.render('inventory/classification', {
+            title: `${className} vehicles`,
+            nav,
+            grid,
+        });
+    } catch (error) {
+        console.error(error);
+        next(error); // Passes the error to the error-handling middleware
+    }
+};
 
-
-
-const inventoryModel = require('../models/inventoryModel');
-
-
-exports.getInventoryDetail = async (req, res) => {
+/* ***************************
+ *  Get inventory item details
+ * ************************** */
+invCont.getInventoryDetail = async function (req, res, next) {
     const inventoryId = req.params.id;
     try {
         const vehicle = await inventoryModel.getVehicleById(inventoryId);
@@ -37,7 +44,9 @@ exports.getInventoryDetail = async (req, res) => {
         });
     } catch (error) {
         console.error(error);
-        res.status(500).send('Server error');
+        next(error); // Passes the error to the error-handling middleware
     }
 };
-module.exports = invCont
+
+module.exports = invCont;
+
