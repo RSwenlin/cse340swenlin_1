@@ -10,7 +10,7 @@ const invChecks = require("../utilities/inventory-validation")
 // unit 3 activities
 router.get("/type/:classificationId", utilities.handleErrors(invController.buildByClassificationId));
 
-module.exports = router;
+module.exports = router; 
 
 //*const express = require('express');
 //*const router = express.Router();
