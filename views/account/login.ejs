@@ -1,6 +1,18 @@
-<form><p>Log In<a href="/account/login"></a></p>
-<button type="submit">Login</button>
-</fieldset>
-</form><p>No Account? <a href="/account/register">Sign-up</a></p>
-</div>
-<script src="/js/script.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <nav>
+        <%= nav %>
+    </nav>
+    <h1><%= title %></h1>
+    <form action="/account/login" method="post">
+        <!-- Your login form fields here -->
+    </form>
+</body>
+</html>
+

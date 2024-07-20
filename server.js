@@ -8,7 +8,7 @@
 const express = require("express")
 const expressLayouts = require("express-ejs-layouts")
 const env = require("dotenv").config()
-const static = require("./routes/static")
+const staticRoutes = require("./routes/static")
 const baseController = require("./controllers/baseController")
 const pool = require('./database/')
 const utilities = require("./utilities/")
@@ -46,14 +46,14 @@ app.use(function (req, res, next) {
 /* ***********************
  * View Engine and Templates
  *************************/
-app.set("view engine", "ejs")
-app.use(expressLayouts)
-app.set("layout", "./layouts/layout") // not at views root
+app.set("view engine", "ejs");
+app.use(expressLayouts);
+app.set("layout", "./layouts/layout"); // not at views root
 
 /* ***********************
  * Routes
  *************************/
-app.use(require("./routes/static"))
+app.use(staticRoutes);
 // Index route - unit 3, activity
 app.get("/", utilities.handleErrors(baseController.buildHome))
 // Inventory routes - Unit 3, activity
@@ -94,8 +94,8 @@ app.use(async (err, req, res, next) => {
  * Local Server Information
  * Values from .env (environment) file
  *************************/
-const port = process.env.PORT
-const host = process.env.HOST
+const port = process.env.PORT;
+const host = process.env.HOST;
 
 /* ***********************
  * Log statement to confirm server operation
