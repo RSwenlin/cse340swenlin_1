@@ -14,9 +14,17 @@ router.get('/login', utilities.handleErrors(accountController,
     buildLogin))
 
 /*  ***********************************
-*   Deliver Registration iew
+*   Deliver Registration view
 *   Unit 4, deliver registration view activity
 *   ******************************* */
 router.get("/register", utilities.handleErrors(accountController.buildRegister))
+/*  ***********************************
+*   Process Registration view
+*   Unit 4, deliver registration activity
+*   ******************************* */
+router.post(
+    "/register",
+    utilities.handleErrors(accountController.registerAccount)
+)
 
 module.exports = router;
