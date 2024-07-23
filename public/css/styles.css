@@ -127,3 +127,68 @@ footer {
       flex-direction: column;
   }
 }
+/* General styling for the body */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e0f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  flex-direction: column;
+}
+
+/* Styling for the nav */
+nav {
+  margin-bottom: 20px;
+}
+
+/* Styling for the form container */
+form {
+  background-color: #2d3e50;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+
+/* Styling for the input fields */
+input[type="email"], input[type="password"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Styling for the login button */
+button {
+  background-color: #ffffff;
+  color: #2d3e50;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #cfd8dc;
+}
+
+/* Styling for the sign-up link */
+.signup-link {
+  color: #ffffff;
+  text-decoration: none;
+  display: block;
+  margin-top: 15px;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
+
