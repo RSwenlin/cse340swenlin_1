@@ -30,7 +30,7 @@ invCont.buildByClassificationId = async function (req, res, next) {
 /* ***************************
  *  Get inventory item details
  * ************************** */
-invCont.getInventoryDetail = async function (req, res, next) {
+invCont.buildByClassificationId = async function (req, res, next) {
     const inventoryId = req.params.id;
     try {
         const vehicle = await inventoryModel.getVehicleById(inventoryId);
@@ -49,4 +49,5 @@ invCont.getInventoryDetail = async function (req, res, next) {
 };
 
 module.exports = invCont;
+
 
