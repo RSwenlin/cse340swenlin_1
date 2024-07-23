@@ -13,6 +13,8 @@ const baseController = require("./controllers/baseController")
 const pool = require('./database/')
 const utilities = require("./utilities/")
 const session = require("express-session")
+const bodyParser = require("body-parser")
+
 
 //const inventoryRoute = require("./routes/inventoryRoute")
 //const accountRoute = require('./routes/accountRoute');
@@ -42,6 +44,9 @@ app.use(function (req, res, next) {
   res.locals.messages = require('express-messages')(req, res)
   next()
 })
+// for parsing application/x-www-form-urlencoded
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true })) 
 
 /* ***********************
  * View Engine and Templates
