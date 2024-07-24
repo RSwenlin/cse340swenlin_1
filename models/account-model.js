@@ -14,6 +14,7 @@ async function registerAccount(account_firstname, account_lastname, account_emai
   }
 /* **********************
  *   Check for existing email
+*   Unit 4, stickiness activity
  * ********************* */
 async function checkExistingEmail(account_email){
     try {
