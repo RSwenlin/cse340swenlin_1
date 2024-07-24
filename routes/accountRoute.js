@@ -3,6 +3,7 @@ const express = require('express');
 const router = new express.Router();
 const accountController = require('../controllers/accountController'); // Import the accounts controller
 const utilities = require("../utilities");
+const regValidate = require('../utilities/account-validation')
 
 
 /* ********************************************
@@ -22,9 +23,13 @@ router.get("/register", utilities.handleErrors(accountController.buildRegister))
 *   Process Registration view
 *   Unit 4, deliver registration activity
 *   ******************************* */
+// Process the registration data
 router.post(
     "/register",
+    regValidate.registationRules(),
+    regValidate.checkRegData,
     utilities.handleErrors(accountController.registerAccount)
-)
+  )
+
 
 module.exports = router;
