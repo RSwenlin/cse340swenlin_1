@@ -35,4 +35,19 @@ exports.getVehicleById = async (id) => {
     }
 };
 
+
+exports.getClassifications = async () => {
+    return await pool.query('SELECT * FROM classifications')
+}
+
+exports.getClassificationByName = async (classificationName) => {
+    const result = await pool.query('SELECT * FROM classifications WHERE classification_name = $1', [classificationName])
+    return result.rows[0]
+}
+
+exports.addClassification = async (classificationName) => {
+    await pool.query('INSERT INTO classifications (classification_name) VALUES ($1)', [classificationName])
+}
+
+
  module.exports = {getClassifications, getInventoryByClassificationId};

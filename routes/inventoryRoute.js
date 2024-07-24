@@ -18,5 +18,7 @@ router.get('/detail/:id', invController.getInventoryDetail);
 // Route to display delete confirmation view
 router.get("/delete/:inv_id", utilities.checkLogin, utilities.checkAdmin, utilities.handleErrors(invController.buildDeleteConfirmationView));
 router.get("/add/:inv_id", utilities.checkLogin, utilities.checkAdmin, utilities.handleErrors(invController.buildAddInventory));
+router.post('/add-classification', utilities.handleErrors(inventoryController.addClassification))
+
 
 module.exports = router;

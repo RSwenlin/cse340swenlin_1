@@ -60,5 +60,21 @@ exports.buildAddInventory = async (req, res, next) => {
         next(error)
     }
 }
+exports.addClassification = async (req, res, next) => {
+    try {
+        const { classificationName } = req.body
+        const existingClassification = await invModel.getClassificationByName(classificationName)
+        if (existingClassification) {
+            req.flash('message', 'Classification already exists.')
+            return res.redirect('/inv/add-classification')
+        }
+        await invModel.addClassification(classificationName)
+        req.flash('message', 'Classification added successfully.')
+        res.redirect('/inv/manage')
+    } catch (error) {
+        next(error)
+    }
+}
+
 module.exports = invCont;
 
