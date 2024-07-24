@@ -10,14 +10,13 @@ const invChecks = require("../utilities/inventory-validation")
 // unit 3 activities
 router.get("/type/:classificationId", utilities.handleErrors(invController.buildByClassificationId));
  
-//*const express = require('express');
-//*const router = express.Router();
-//*const inventoryController = require('../controllers/inventoryController');
+
 
 // Define a route to handle specific inventory item detail view
 router.get('/detail/:id', invController.getInventoryDetail);
 
 // Route to display delete confirmation view
 router.get("/delete/:inv_id", utilities.checkLogin, utilities.checkAdmin, utilities.handleErrors(invController.buildDeleteConfirmationView));
+router.get("/add/:inv_id", utilities.checkLogin, utilities.checkAdmin, utilities.handleErrors(invController.buildAddInventory));
 
 module.exports = router;

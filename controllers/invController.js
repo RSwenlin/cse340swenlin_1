@@ -47,7 +47,18 @@ invCont.buildByClassificationId = async function (req, res, next) {
         next(error); // Passes the error to the error-handling middleware
     }
 };
-
+/* ***************************
+ *  Get inventory 
+ * ************************** */
+exports.buildAddInventory = async (req, res, next) => {
+    try {
+        let message = req.flash('message')
+        const classifications = await invModel.getClassifications()
+        const classificationList = Util.buildClassificationList(classifications)
+        res.render('inventory/addInventory', { title: 'Add Inventory', message: message, classificationList: classificationList })
+    } catch (error) {
+        next(error)
+    }
+}
 module.exports = invCont;
-
 

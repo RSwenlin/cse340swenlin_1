@@ -8,4 +8,17 @@
 
     <%- grid %>
 
+    <h1>Add Classification</h1>
+    <% if (typeof message !== 'undefined') { %>
+        <div class="flash-message"><%= message %></div>
+    <% } %>
+    <form action="/inv/add-classification" method="post" id="add-classification-form">
+        <div class="form-group">
+            <label for="classificationName">Classification Name</label>
+            <input type="text" id="classificationName" name="classificationName" pattern="^[a-zA-Z0-9]+$" title="No spaces or special characters" required>
+        </div>
+        <button type="submit">Add Classification</button>
+    </form>
+    <script src="/js/clientValidation.js"></script>
+
     
